@@ -345,6 +345,12 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.06);
             transition: all 0.3s ease;
             border-left: 5px solid var(--secondary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .chapter-item:hover {
+            z-index: 10;
         }
 
         .chapter-item:hover {
@@ -451,6 +457,7 @@
         .series-dropdown {
             position: relative;
             display: inline-block;
+            z-index: 100;
         }
 
         .series-toggle {
@@ -494,7 +501,7 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.15);
             padding: 8px;
             min-width: 180px;
-            z-index: 100;
+            z-index: 9999;
             animation: dropdownIn 0.3s ease;
         }
 
