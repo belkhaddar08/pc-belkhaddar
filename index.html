@@ -447,6 +447,103 @@
             box-shadow: none;
         }
 
+        /* ===== MENU DÉROULANT SÉRIES D'EXERCICES ===== */
+        .series-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .series-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 18px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #e67e22, #d35400);
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .series-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(230,126,34,0.4);
+        }
+
+        .series-toggle .arrow {
+            font-size: 0.7rem;
+            transition: transform 0.3s ease;
+        }
+
+        .series-dropdown.active .series-toggle .arrow {
+            transform: rotate(180deg);
+        }
+
+        .series-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            padding: 8px;
+            min-width: 180px;
+            z-index: 100;
+            animation: dropdownIn 0.3s ease;
+        }
+
+        @keyframes dropdownIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .series-dropdown.active .series-menu {
+            display: block;
+        }
+
+        .series-menu a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .series-menu a:hover {
+            background: #fef3e2;
+            color: #d35400;
+        }
+
+        .series-menu a .num {
+            width: 26px;
+            height: 26px;
+            background: linear-gradient(135deg, #e67e22, #d35400);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .series-menu .divider {
+            height: 1px;
+            background: #eee;
+            margin: 6px 0;
+        }
+
         /* ===== CONTENT SECTIONS ===== */
         .content-section { display: none; }
         .content-section.active {
@@ -609,7 +706,17 @@
                     <div class="chapter-actions">
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-cours">📘 Cours</a>
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-activites">📝 Activités</a>
-                        <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-exercices">📐 Exercices</a>
+                        <div class="series-dropdown" onclick="toggleSeries(this, event)">
+                        <button class="series-toggle">📐 Séries d'exercices <span class="arrow">▼</span></button>
+                        <div class="series-menu">
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">1</span> Série 1</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">2</span> Série 2</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">3</span> Série 3</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">4</span> Série 4</a>
+                            <div class="divider"></div>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">★</span> Série Complète</a>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <div class="chapter-item">
@@ -621,7 +728,17 @@
                     <div class="chapter-actions">
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-cours">📘 Cours</a>
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-activites">📝 Activités</a>
-                        <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-exercices">📐 Exercices</a>
+                        <div class="series-dropdown" onclick="toggleSeries(this, event)">
+                        <button class="series-toggle">📐 Séries d'exercices <span class="arrow">▼</span></button>
+                        <div class="series-menu">
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">1</span> Série 1</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">2</span> Série 2</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">3</span> Série 3</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">4</span> Série 4</a>
+                            <div class="divider"></div>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">★</span> Série Complète</a>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <div class="chapter-item">
@@ -633,7 +750,7 @@
                     <div class="chapter-actions">
                         <span class="download-btn btn-cours disabled">📘 Cours</span>
                         <span class="download-btn btn-activites disabled">📝 Activités</span>
-                        <span class="download-btn btn-exercices disabled">📐 Exercices</span>
+                        <span class="download-btn btn-exercices disabled">📐 Séries d'exercices</span>
                     </div>
                 </div>
                 <div class="chapter-item">
@@ -645,7 +762,7 @@
                     <div class="chapter-actions">
                         <span class="download-btn btn-cours disabled">📘 Cours</span>
                         <span class="download-btn btn-activites disabled">📝 Activités</span>
-                        <span class="download-btn btn-exercices disabled">📐 Exercices</span>
+                        <span class="download-btn btn-exercices disabled">📐 Séries d'exercices</span>
                     </div>
                 </div>
             </div>
@@ -662,7 +779,17 @@
                     <div class="chapter-actions">
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-cours">📘 Cours</a>
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-activites">📝 Activités</a>
-                        <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-exercices">📐 Exercices</a>
+                        <div class="series-dropdown" onclick="toggleSeries(this, event)">
+                        <button class="series-toggle">📐 Séries d'exercices <span class="arrow">▼</span></button>
+                        <div class="series-menu">
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">1</span> Série 1</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">2</span> Série 2</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">3</span> Série 3</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">4</span> Série 4</a>
+                            <div class="divider"></div>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">★</span> Série Complète</a>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <div class="chapter-item">
@@ -674,7 +801,17 @@
                     <div class="chapter-actions">
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-cours">📘 Cours</a>
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-activites">📝 Activités</a>
-                        <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-exercices">📐 Exercices</a>
+                        <div class="series-dropdown" onclick="toggleSeries(this, event)">
+                        <button class="series-toggle">📐 Séries d'exercices <span class="arrow">▼</span></button>
+                        <div class="series-menu">
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">1</span> Série 1</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">2</span> Série 2</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">3</span> Série 3</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">4</span> Série 4</a>
+                            <div class="divider"></div>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">★</span> Série Complète</a>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <div class="chapter-item">
@@ -686,7 +823,7 @@
                     <div class="chapter-actions">
                         <span class="download-btn btn-cours disabled">📘 Cours</span>
                         <span class="download-btn btn-activites disabled">📝 Activités</span>
-                        <span class="download-btn btn-exercices disabled">📐 Exercices</span>
+                        <span class="download-btn btn-exercices disabled">📐 Séries d'exercices</span>
                     </div>
                 </div>
             </div>
@@ -772,7 +909,17 @@
                     <div class="chapter-actions">
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-cours">📘 Cours</a>
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-activites">📝 Activités</a>
-                        <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-exercices">📐 Exercices</a>
+                        <div class="series-dropdown" onclick="toggleSeries(this, event)">
+                        <button class="series-toggle">📐 Séries d'exercices <span class="arrow">▼</span></button>
+                        <div class="series-menu">
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">1</span> Série 1</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">2</span> Série 2</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">3</span> Série 3</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">4</span> Série 4</a>
+                            <div class="divider"></div>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">★</span> Série Complète</a>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <div class="chapter-item">
@@ -784,7 +931,17 @@
                     <div class="chapter-actions">
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-cours">📘 Cours</a>
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-activites">📝 Activités</a>
-                        <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-exercices">📐 Exercices</a>
+                        <div class="series-dropdown" onclick="toggleSeries(this, event)">
+                        <button class="series-toggle">📐 Séries d'exercices <span class="arrow">▼</span></button>
+                        <div class="series-menu">
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">1</span> Série 1</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">2</span> Série 2</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">3</span> Série 3</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">4</span> Série 4</a>
+                            <div class="divider"></div>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">★</span> Série Complète</a>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <div class="chapter-item">
@@ -796,7 +953,7 @@
                     <div class="chapter-actions">
                         <span class="download-btn btn-cours disabled">📘 Cours</span>
                         <span class="download-btn btn-activites disabled">📝 Activités</span>
-                        <span class="download-btn btn-exercices disabled">📐 Exercices</span>
+                        <span class="download-btn btn-exercices disabled">📐 Séries d'exercices</span>
                     </div>
                 </div>
                 <div class="chapter-item">
@@ -808,7 +965,7 @@
                     <div class="chapter-actions">
                         <span class="download-btn btn-cours disabled">📘 Cours</span>
                         <span class="download-btn btn-activites disabled">📝 Activités</span>
-                        <span class="download-btn btn-exercices disabled">📐 Exercices</span>
+                        <span class="download-btn btn-exercices disabled">📐 Séries d'exercices</span>
                     </div>
                 </div>
                 <div class="chapter-item">
@@ -820,7 +977,7 @@
                     <div class="chapter-actions">
                         <span class="download-btn btn-cours disabled">📘 Cours</span>
                         <span class="download-btn btn-activites disabled">📝 Activités</span>
-                        <span class="download-btn btn-exercices disabled">📐 Exercices</span>
+                        <span class="download-btn btn-exercices disabled">📐 Séries d'exercices</span>
                     </div>
                 </div>
             </div>
@@ -837,7 +994,17 @@
                     <div class="chapter-actions">
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-cours">📘 Cours</a>
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-activites">📝 Activités</a>
-                        <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-exercices">📐 Exercices</a>
+                        <div class="series-dropdown" onclick="toggleSeries(this, event)">
+                        <button class="series-toggle">📐 Séries d'exercices <span class="arrow">▼</span></button>
+                        <div class="series-menu">
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">1</span> Série 1</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">2</span> Série 2</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">3</span> Série 3</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">4</span> Série 4</a>
+                            <div class="divider"></div>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">★</span> Série Complète</a>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <div class="chapter-item">
@@ -849,7 +1016,17 @@
                     <div class="chapter-actions">
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-cours">📘 Cours</a>
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-activites">📝 Activités</a>
-                        <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-exercices">📐 Exercices</a>
+                        <div class="series-dropdown" onclick="toggleSeries(this, event)">
+                        <button class="series-toggle">📐 Séries d'exercices <span class="arrow">▼</span></button>
+                        <div class="series-menu">
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">1</span> Série 1</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">2</span> Série 2</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">3</span> Série 3</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">4</span> Série 4</a>
+                            <div class="divider"></div>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">★</span> Série Complète</a>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <div class="chapter-item">
@@ -861,7 +1038,7 @@
                     <div class="chapter-actions">
                         <span class="download-btn btn-cours disabled">📘 Cours</span>
                         <span class="download-btn btn-activites disabled">📝 Activités</span>
-                        <span class="download-btn btn-exercices disabled">📐 Exercices</span>
+                        <span class="download-btn btn-exercices disabled">📐 Séries d'exercices</span>
                     </div>
                 </div>
                 <div class="chapter-item">
@@ -873,7 +1050,7 @@
                     <div class="chapter-actions">
                         <span class="download-btn btn-cours disabled">📘 Cours</span>
                         <span class="download-btn btn-activites disabled">📝 Activités</span>
-                        <span class="download-btn btn-exercices disabled">📐 Exercices</span>
+                        <span class="download-btn btn-exercices disabled">📐 Séries d'exercices</span>
                     </div>
                 </div>
             </div>
@@ -959,7 +1136,17 @@
                     <div class="chapter-actions">
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-cours">📘 Cours</a>
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-activites">📝 Activités</a>
-                        <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-exercices">📐 Exercices</a>
+                        <div class="series-dropdown" onclick="toggleSeries(this, event)">
+                        <button class="series-toggle">📐 Séries d'exercices <span class="arrow">▼</span></button>
+                        <div class="series-menu">
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">1</span> Série 1</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">2</span> Série 2</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">3</span> Série 3</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">4</span> Série 4</a>
+                            <div class="divider"></div>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">★</span> Série Complète</a>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <div class="chapter-item">
@@ -971,7 +1158,17 @@
                     <div class="chapter-actions">
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-cours">📘 Cours</a>
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-activites">📝 Activités</a>
-                        <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-exercices">📐 Exercices</a>
+                        <div class="series-dropdown" onclick="toggleSeries(this, event)">
+                        <button class="series-toggle">📐 Séries d'exercices <span class="arrow">▼</span></button>
+                        <div class="series-menu">
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">1</span> Série 1</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">2</span> Série 2</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">3</span> Série 3</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">4</span> Série 4</a>
+                            <div class="divider"></div>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">★</span> Série Complète</a>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <div class="chapter-item">
@@ -983,7 +1180,7 @@
                     <div class="chapter-actions">
                         <span class="download-btn btn-cours disabled">📘 Cours</span>
                         <span class="download-btn btn-activites disabled">📝 Activités</span>
-                        <span class="download-btn btn-exercices disabled">📐 Exercices</span>
+                        <span class="download-btn btn-exercices disabled">📐 Séries d'exercices</span>
                     </div>
                 </div>
                 <div class="chapter-item">
@@ -995,7 +1192,7 @@
                     <div class="chapter-actions">
                         <span class="download-btn btn-cours disabled">📘 Cours</span>
                         <span class="download-btn btn-activites disabled">📝 Activités</span>
-                        <span class="download-btn btn-exercices disabled">📐 Exercices</span>
+                        <span class="download-btn btn-exercices disabled">📐 Séries d'exercices</span>
                     </div>
                 </div>
                 <div class="chapter-item">
@@ -1007,7 +1204,7 @@
                     <div class="chapter-actions">
                         <span class="download-btn btn-cours disabled">📘 Cours</span>
                         <span class="download-btn btn-activites disabled">📝 Activités</span>
-                        <span class="download-btn btn-exercices disabled">📐 Exercices</span>
+                        <span class="download-btn btn-exercices disabled">📐 Séries d'exercices</span>
                     </div>
                 </div>
             </div>
@@ -1024,7 +1221,17 @@
                     <div class="chapter-actions">
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-cours">📘 Cours</a>
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-activites">📝 Activités</a>
-                        <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-exercices">📐 Exercices</a>
+                        <div class="series-dropdown" onclick="toggleSeries(this, event)">
+                        <button class="series-toggle">📐 Séries d'exercices <span class="arrow">▼</span></button>
+                        <div class="series-menu">
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">1</span> Série 1</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">2</span> Série 2</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">3</span> Série 3</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">4</span> Série 4</a>
+                            <div class="divider"></div>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">★</span> Série Complète</a>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <div class="chapter-item">
@@ -1036,7 +1243,17 @@
                     <div class="chapter-actions">
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-cours">📘 Cours</a>
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-activites">📝 Activités</a>
-                        <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-exercices">📐 Exercices</a>
+                        <div class="series-dropdown" onclick="toggleSeries(this, event)">
+                        <button class="series-toggle">📐 Séries d'exercices <span class="arrow">▼</span></button>
+                        <div class="series-menu">
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">1</span> Série 1</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">2</span> Série 2</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">3</span> Série 3</a>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">4</span> Série 4</a>
+                            <div class="divider"></div>
+                            <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">★</span> Série Complète</a>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <div class="chapter-item">
@@ -1048,7 +1265,7 @@
                     <div class="chapter-actions">
                         <span class="download-btn btn-cours disabled">📘 Cours</span>
                         <span class="download-btn btn-activites disabled">📝 Activités</span>
-                        <span class="download-btn btn-exercices disabled">📐 Exercices</span>
+                        <span class="download-btn btn-exercices disabled">📐 Séries d'exercices</span>
                     </div>
                 </div>
                 <div class="chapter-item">
@@ -1060,7 +1277,7 @@
                     <div class="chapter-actions">
                         <span class="download-btn btn-cours disabled">📘 Cours</span>
                         <span class="download-btn btn-activites disabled">📝 Activités</span>
-                        <span class="download-btn btn-exercices disabled">📐 Exercices</span>
+                        <span class="download-btn btn-exercices disabled">📐 Séries d'exercices</span>
                     </div>
                 </div>
             </div>
@@ -1166,6 +1383,25 @@
         tabs.querySelectorAll('.subject-tab').forEach(t => t.classList.remove('active'));
         event.target.classList.add('active');
     }
+
+    function toggleSeries(dropdown, event) {
+        event.stopPropagation();
+
+        // Fermer tous les autres menus ouverts
+        document.querySelectorAll('.series-dropdown.active').forEach(d => {
+            if (d !== dropdown) d.classList.remove('active');
+        });
+
+        // Toggle le menu actuel
+        dropdown.classList.toggle('active');
+    }
+
+    // Fermer les menus déroulants quand on clique ailleurs
+    document.addEventListener('click', function() {
+        document.querySelectorAll('.series-dropdown.active').forEach(d => {
+            d.classList.remove('active');
+        });
+    });
 </script>
 
 </body>
