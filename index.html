@@ -693,122 +693,6 @@
             font-size: 0.9rem;
         }
 
-
-        /* ===== COMPTEURS ===== */
-        .counters-section {
-            display: flex;
-            gap: 25px;
-            justify-content: center;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-
-        .counter-card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px 40px;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            min-width: 220px;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .counter-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
-        }
-
-        .counter-card.visitors {
-            border-color: var(--secondary);
-        }
-
-        .counter-card.visitors::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--secondary), var(--primary));
-        }
-
-        .counter-card.downloads {
-            border-color: var(--accent);
-        }
-
-        .counter-card.downloads::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #e67e22, #d35400);
-        }
-
-        .counter-icon {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .counter-value {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--dark);
-            margin-bottom: 5px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        .counter-card.visitors .counter-value {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .counter-card.downloads .counter-value {
-            background: linear-gradient(135deg, #e67e22, #d35400);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .counter-label {
-            font-size: 1rem;
-            color: #666;
-            font-weight: 600;
-        }
-
-        .counter-live {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: #e8f5e9;
-            color: #27ae60;
-            padding: 4px 12px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-top: 8px;
-        }
-
-        .counter-live .dot {
-            width: 8px;
-            height: 8px;
-            background: #27ae60;
-            border-radius: 50%;
-            animation: pulse-dot 1.5s ease-in-out infinite;
-        }
-
-        @keyframes pulse-dot {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(0.8); }
-        }
-
         /* ===== RESPONSIVE ===== */
         @media (max-width: 900px) {
             .hero { flex-direction: column; text-align: center; }
@@ -831,7 +715,6 @@
             .subject-tab { width: 220px; text-align: center; }
         }
     </style>
-<base target="_blank">
 <base target="_blank">
 <base target="_blank">
 </head>
@@ -912,21 +795,15 @@
                 </div>
             </a>
         </div>
-        <div class="counters-section">
-            <div class="counter-card visitors">
-                <span class="counter-icon">👁️</span>
-                <div class="counter-value" id="visitor-counter">0</div>
-                <div class="counter-label">Visiteurs</div>
-                <div class="counter-live"><span class="dot"></span> En direct</div>
-            </div>
-            <div class="counter-card downloads">
-                <span class="counter-icon">⬇️</span>
-                <div class="counter-value" id="download-counter">0</div>
-                <div class="counter-label">Téléchargements</div>
-                <div class="counter-live"><span class="dot"></span> En direct</div>
-            </div>
-        </div>
     </div>
+    
+    
+    
+    
+    
+    
+    
+    
 
     <!-- ==================== PAGE TRONC COMMUN ==================== -->
     <div id="tronc" class="page">
@@ -1070,6 +947,7 @@
                         <div class="series-dropdown" onclick="toggleSeries(this, event)">
                             <button class="series-toggle">📐 Séries d'exercices <span class="arrow">▼</span></button>
                             <div class="series-menu">
+                            	 <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">1</span> Série 0</a>
                                 <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">1</span> Série 1</a>
                                 <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">2</span> Série 2</a>
                                 <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank"><span class="num">3</span> Série 3</a>
@@ -4611,141 +4489,6 @@
             d.classList.remove('active');
         });
     });
-
-    // ===== COMPTEURS VISITEURS & TÉLÉCHARGEMENTS =====
-    (function() {
-        const VISITOR_KEY = 'pc_site_visitors';
-        const DOWNLOAD_KEY = 'pc_site_downloads';
-        const MY_VISIT_KEY = 'pc_site_visited';
-
-        // Générer un ID unique pour ce navigateur
-        function getVisitorId() {
-            let id = localStorage.getItem('pc_visitor_id');
-            if (!id) {
-                id = 'v_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-                localStorage.setItem('pc_visitor_id', id);
-            }
-            return id;
-        }
-
-        // Incrémenter le compteur de visiteurs (une seule fois par navigateur)
-        function incrementVisitors() {
-            let visitors = parseInt(localStorage.getItem(VISITOR_KEY) || '0');
-            const hasVisited = sessionStorage.getItem(MY_VISIT_KEY);
-
-            if (!hasVisited) {
-                visitors++;
-                localStorage.setItem(VISITOR_KEY, visitors.toString());
-                sessionStorage.setItem(MY_VISIT_KEY, 'true');
-            }
-            return visitors;
-        }
-
-        // Récupérer le nombre de visiteurs
-        function getVisitors() {
-            return parseInt(localStorage.getItem(VISITOR_KEY) || '0');
-        }
-
-        // Récupérer le nombre de téléchargements
-        function getDownloads() {
-            return parseInt(localStorage.getItem(DOWNLOAD_KEY) || '0');
-        }
-
-        // Incrémenter les téléchargements
-        function incrementDownloads() {
-            let downloads = parseInt(localStorage.getItem(DOWNLOAD_KEY) || '0');
-            downloads++;
-            localStorage.setItem(DOWNLOAD_KEY, downloads.toString());
-            updateDownloadDisplay();
-            return downloads;
-        }
-
-        // Animation de comptage
-        function animateCounter(element, target, duration = 1500) {
-            const start = parseInt(element.textContent.replace(/,/g, '')) || 0;
-            const diff = target - start;
-            const startTime = performance.now();
-
-            function update(currentTime) {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-
-                // Easing ease-out
-                const easeOut = 1 - Math.pow(1 - progress, 3);
-                const current = Math.floor(start + diff * easeOut);
-
-                element.textContent = current.toLocaleString('fr-FR');
-
-                if (progress < 1) {
-                    requestAnimationFrame(update);
-                }
-            }
-
-            requestAnimationFrame(update);
-        }
-
-        // Mettre à jour l'affichage des visiteurs
-        function updateVisitorDisplay() {
-            const el = document.getElementById('visitor-counter');
-            if (el) {
-                animateCounter(el, getVisitors());
-            }
-        }
-
-        // Mettre à jour l'affichage des téléchargements
-        function updateDownloadDisplay() {
-            const el = document.getElementById('download-counter');
-            if (el) {
-                animateCounter(el, getDownloads());
-            }
-        }
-
-        // Initialiser les compteurs
-        function initCounters() {
-            incrementVisitors();
-            updateVisitorDisplay();
-            updateDownloadDisplay();
-        }
-
-        // Suivre les clics sur les liens de téléchargement
-        function trackDownloads() {
-            document.querySelectorAll('a[href*="mega.nz"], a[href$=".pdf"], a[href$=".doc"], a[href$=".docx"]').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    incrementDownloads();
-                });
-            });
-        }
-
-        // Simuler des visiteurs aléatoires (effet réaliste)
-        function simulateLiveVisitors() {
-            setInterval(() => {
-                // Petite variation aléatoire pour l'effet "live"
-                const el = document.getElementById('visitor-counter');
-                if (el && Math.random() > 0.7) {
-                    const base = getVisitors();
-                    const variation = Math.floor(Math.random() * 3);
-                    el.textContent = (base + variation).toLocaleString('fr-FR');
-                }
-            }, 5000);
-        }
-
-        // Démarrer
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', function() {
-                initCounters();
-                trackDownloads();
-                simulateLiveVisitors();
-            });
-        } else {
-            initCounters();
-            trackDownloads();
-            simulateLiveVisitors();
-        }
-
-        // Exposer la fonction d'incrémentation globalement
-        window.incrementDownloadCounter = incrementDownloads;
-    })();
-
 </script>
 
 </body>
