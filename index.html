@@ -3524,34 +3524,20 @@
                         </div>
                     </div>
                 </div>
-           <div class="chapter-item">
-                    <div class="chapter-number">3</div>
-                    <div class="chapter-info">
-                        <div class="chapter-title">Ondes lumineuses</div>
-                    </div>
-                    <div class="chapter-actions">
-                        <a href="https://mega.nz/file/TlNjyJQJ#uLa9K8OkJW6ydf6tX1zWjTIVYpGd0zlty3ITiVNr_pg" target="_blank" class="download-btn btn-cours">📘 Cours</a>
-                        <a href="https://mega.nz/file/jgUCWQZQ#4NbJVtB2QiaqrFfVvN_4ylymT0dBwv-KPPToI_IkIQ8" target="_blank" class="download-btn btn-activites">📝 Activités</a>
-                        <div class="series-dropdown" onclick="toggleSeries(this, event)">
-                            <button class="series-toggle">📐 Séries d'exercices <span class="arrow">▼</span></button>
-                            <div class="series-menu">
-                                <a href="https://mega.nz/file/60cCyQjK#A52Z1ts-hPYS9glSMWKt64_oxDFnrV8wRTX-tJ6Q_7o" target="_blank"><span class="num">1</span> Série 1</a>
-                                  <a href="https://mega.nz/file/q0923A7Y#kK84IL-D-BPvBBTW_U2eVYv5OpuicXME7v0xscjQ5BUJLNmvOS-A" target="_blank"><span class="num">2</span> Série 2</a>
-                               <div class="divider"></div>
-                                <a href="https://mega.nz/file/bwcGgSrS#nRuqlsK-v6ZPCJSP75ysJOrsIV4LLQvGJWfo5hctpak" target="_blank"><span class="num">★</span> Série Complète</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
 
-   <div id="premiere-chimie" class="content-section">
+
+
+        <div id="deuxieme-chimie" class="content-section">
             <div class="chapters-list">
                 <div class="chapter-item">
-                    <div class="chapter-number">1</div>
+              
+
+
+      <div class="chapter-number">1</div>
                     <div class="chapter-info">
-                        <div class="chapter-title">Les Réactions Acido-Basiques</div>
-                        <div class="chapter-meta">Couples acide/base • pH • Titrage acido-basique • Indicateurs</div>
+                        <div class="chapter-title">Évolution Spontanée d'un Système Chimique</div>
+                        <div class="chapter-meta">Quotient de réaction • Constante d'équilibre • Critère d'évolution</div>
                     </div>
                     <div class="chapter-actions">
                         <a href="https://mega.nz/file/D0EWzB7b#5x_qUvRPo2vr3efBaYVGnjqynoIf2HDYFPJC2NX7pgo" target="_blank" class="download-btn btn-cours">📘 Cours</a>
@@ -4722,6 +4708,141 @@
             d.classList.remove('active');
         });
     });
+
+    // ===== COMPTEURS VISITEURS & TÉLÉCHARGEMENTS =====
+    (function() {
+        const VISITOR_KEY = 'pc_site_visitors';
+        const DOWNLOAD_KEY = 'pc_site_downloads';
+        const MY_VISIT_KEY = 'pc_site_visited';
+
+        // Générer un ID unique pour ce navigateur
+        function getVisitorId() {
+            let id = localStorage.getItem('pc_visitor_id');
+            if (!id) {
+                id = 'v_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                localStorage.setItem('pc_visitor_id', id);
+            }
+            return id;
+        }
+
+        // Incrémenter le compteur de visiteurs (une seule fois par navigateur)
+        function incrementVisitors() {
+            let visitors = parseInt(localStorage.getItem(VISITOR_KEY) || '0');
+            const hasVisited = sessionStorage.getItem(MY_VISIT_KEY);
+
+            if (!hasVisited) {
+                visitors++;
+                localStorage.setItem(VISITOR_KEY, visitors.toString());
+                sessionStorage.setItem(MY_VISIT_KEY, 'true');
+            }
+            return visitors;
+        }
+
+        // Récupérer le nombre de visiteurs
+        function getVisitors() {
+            return parseInt(localStorage.getItem(VISITOR_KEY) || '0');
+        }
+
+        // Récupérer le nombre de téléchargements
+        function getDownloads() {
+            return parseInt(localStorage.getItem(DOWNLOAD_KEY) || '0');
+        }
+
+        // Incrémenter les téléchargements
+        function incrementDownloads() {
+            let downloads = parseInt(localStorage.getItem(DOWNLOAD_KEY) || '0');
+            downloads++;
+            localStorage.setItem(DOWNLOAD_KEY, downloads.toString());
+            updateDownloadDisplay();
+            return downloads;
+        }
+
+        // Animation de comptage
+        function animateCounter(element, target, duration = 1500) {
+            const start = parseInt(element.textContent.replace(/,/g, '')) || 0;
+            const diff = target - start;
+            const startTime = performance.now();
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // Easing ease-out
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                const current = Math.floor(start + diff * easeOut);
+
+                element.textContent = current.toLocaleString('fr-FR');
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        // Mettre à jour l'affichage des visiteurs
+        function updateVisitorDisplay() {
+            const el = document.getElementById('visitor-counter');
+            if (el) {
+                animateCounter(el, getVisitors());
+            }
+        }
+
+        // Mettre à jour l'affichage des téléchargements
+        function updateDownloadDisplay() {
+            const el = document.getElementById('download-counter');
+            if (el) {
+                animateCounter(el, getDownloads());
+            }
+        }
+
+        // Initialiser les compteurs
+        function initCounters() {
+            incrementVisitors();
+            updateVisitorDisplay();
+            updateDownloadDisplay();
+        }
+
+        // Suivre les clics sur les liens de téléchargement
+        function trackDownloads() {
+            document.querySelectorAll('a[href*="mega.nz"], a[href$=".pdf"], a[href$=".doc"], a[href$=".docx"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    incrementDownloads();
+                });
+            });
+        }
+
+        // Simuler des visiteurs aléatoires (effet réaliste)
+        function simulateLiveVisitors() {
+            setInterval(() => {
+                // Petite variation aléatoire pour l'effet "live"
+                const el = document.getElementById('visitor-counter');
+                if (el && Math.random() > 0.7) {
+                    const base = getVisitors();
+                    const variation = Math.floor(Math.random() * 3);
+                    el.textContent = (base + variation).toLocaleString('fr-FR');
+                }
+            }, 5000);
+        }
+
+        // Démarrer
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                initCounters();
+                trackDownloads();
+                simulateLiveVisitors();
+            });
+        } else {
+            initCounters();
+            trackDownloads();
+            simulateLiveVisitors();
+        }
+
+        // Exposer la fonction d'incrémentation globalement
+        window.incrementDownloadCounter = incrementDownloads;
+    })();
+
 </script>
 
 </body>
