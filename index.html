@@ -3546,14 +3546,10 @@
 
 
 
-
         <div id="deuxieme-chimie" class="content-section">
             <div class="chapters-list">
                 <div class="chapter-item">
-              
-
-
-      <div class="chapter-number">1</div>
+                    <div class="chapter-number">1</div>
                     <div class="chapter-info">
                         <div class="chapter-title">Évolution Spontanée d'un Système Chimique</div>
                         <div class="chapter-meta">Quotient de réaction • Constante d'équilibre • Critère d'évolution</div>
@@ -4727,141 +4723,6 @@
             d.classList.remove('active');
         });
     });
-
-    // ===== COMPTEURS VISITEURS & TÉLÉCHARGEMENTS =====
-    (function() {
-        const VISITOR_KEY = 'pc_site_visitors';
-        const DOWNLOAD_KEY = 'pc_site_downloads';
-        const MY_VISIT_KEY = 'pc_site_visited';
-
-        // Générer un ID unique pour ce navigateur
-        function getVisitorId() {
-            let id = localStorage.getItem('pc_visitor_id');
-            if (!id) {
-                id = 'v_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-                localStorage.setItem('pc_visitor_id', id);
-            }
-            return id;
-        }
-
-        // Incrémenter le compteur de visiteurs (une seule fois par navigateur)
-        function incrementVisitors() {
-            let visitors = parseInt(localStorage.getItem(VISITOR_KEY) || '0');
-            const hasVisited = sessionStorage.getItem(MY_VISIT_KEY);
-
-            if (!hasVisited) {
-                visitors++;
-                localStorage.setItem(VISITOR_KEY, visitors.toString());
-                sessionStorage.setItem(MY_VISIT_KEY, 'true');
-            }
-            return visitors;
-        }
-
-        // Récupérer le nombre de visiteurs
-        function getVisitors() {
-            return parseInt(localStorage.getItem(VISITOR_KEY) || '0');
-        }
-
-        // Récupérer le nombre de téléchargements
-        function getDownloads() {
-            return parseInt(localStorage.getItem(DOWNLOAD_KEY) || '0');
-        }
-
-        // Incrémenter les téléchargements
-        function incrementDownloads() {
-            let downloads = parseInt(localStorage.getItem(DOWNLOAD_KEY) || '0');
-            downloads++;
-            localStorage.setItem(DOWNLOAD_KEY, downloads.toString());
-            updateDownloadDisplay();
-            return downloads;
-        }
-
-        // Animation de comptage
-        function animateCounter(element, target, duration = 1500) {
-            const start = parseInt(element.textContent.replace(/,/g, '')) || 0;
-            const diff = target - start;
-            const startTime = performance.now();
-
-            function update(currentTime) {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-
-                // Easing ease-out
-                const easeOut = 1 - Math.pow(1 - progress, 3);
-                const current = Math.floor(start + diff * easeOut);
-
-                element.textContent = current.toLocaleString('fr-FR');
-
-                if (progress < 1) {
-                    requestAnimationFrame(update);
-                }
-            }
-
-            requestAnimationFrame(update);
-        }
-
-        // Mettre à jour l'affichage des visiteurs
-        function updateVisitorDisplay() {
-            const el = document.getElementById('visitor-counter');
-            if (el) {
-                animateCounter(el, getVisitors());
-            }
-        }
-
-        // Mettre à jour l'affichage des téléchargements
-        function updateDownloadDisplay() {
-            const el = document.getElementById('download-counter');
-            if (el) {
-                animateCounter(el, getDownloads());
-            }
-        }
-
-        // Initialiser les compteurs
-        function initCounters() {
-            incrementVisitors();
-            updateVisitorDisplay();
-            updateDownloadDisplay();
-        }
-
-        // Suivre les clics sur les liens de téléchargement
-        function trackDownloads() {
-            document.querySelectorAll('a[href*="mega.nz"], a[href$=".pdf"], a[href$=".doc"], a[href$=".docx"]').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    incrementDownloads();
-                });
-            });
-        }
-
-        // Simuler des visiteurs aléatoires (effet réaliste)
-        function simulateLiveVisitors() {
-            setInterval(() => {
-                // Petite variation aléatoire pour l'effet "live"
-                const el = document.getElementById('visitor-counter');
-                if (el && Math.random() > 0.7) {
-                    const base = getVisitors();
-                    const variation = Math.floor(Math.random() * 3);
-                    el.textContent = (base + variation).toLocaleString('fr-FR');
-                }
-            }, 5000);
-        }
-
-        // Démarrer
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', function() {
-                initCounters();
-                trackDownloads();
-                simulateLiveVisitors();
-            });
-        } else {
-            initCounters();
-            trackDownloads();
-            simulateLiveVisitors();
-        }
-
-        // Exposer la fonction d'incrémentation globalement
-        window.incrementDownloadCounter = incrementDownloads;
-    })();
-
 </script>
 
 </body>
