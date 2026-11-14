@@ -26,8 +26,6 @@
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
             color: var(--dark);
-            display: flex;
-            flex-direction: column;
         }
 
         /* ===== NAVBAR ===== */
@@ -92,10 +90,8 @@
         /* ===== CONTAINER ===== */
         .container {
             max-width: 1200px;
-            width: 100%;
             margin: 0 auto;
             padding: 30px 20px;
-            flex: 1;
         }
 
         .page {
@@ -132,7 +128,6 @@
             font-size: 4rem;
             opacity: 0.15;
             animation: spin 20s linear infinite;
-            pointer-events: none;
         }
 
         @keyframes spin {
@@ -149,19 +144,18 @@
             width: 180px;
             height: 180px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.15);
             border: 5px solid white;
             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
             margin: 0 auto 20px;
+            background: rgba(255,255,255,0.15);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 5rem;
-            backdrop-filter: blur(8px);
         }
 
         .profile-name {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 8px;
         }
@@ -186,13 +180,13 @@
         .hero-content { flex: 1; }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 2.4rem;
             margin-bottom: 15px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             opacity: 0.95;
             margin-bottom: 25px;
             line-height: 1.6;
@@ -213,11 +207,11 @@
         .welcome-quote {
             background: rgba(255,255,255,0.15);
             border-radius: 16px;
-            padding: 25px;
+            padding: 22px;
             margin-top: 25px;
             border-left: 4px solid var(--accent);
             font-style: italic;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.7;
         }
 
@@ -238,8 +232,6 @@
             transition: all 0.3s ease;
             cursor: pointer;
             border: 2px solid transparent;
-            text-decoration: none;
-            color: inherit;
         }
 
         .feature-card:hover {
@@ -248,126 +240,29 @@
             border-color: var(--secondary);
         }
 
-        .feature-icon {
-            font-size: 3.5rem;
-            margin-bottom: 15px;
-        }
-
-        .feature-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 10px;
-        }
-
-        .feature-desc {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        /* ===== STATS BAR ===== */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .stat-card {
-            background: white;
-            border-radius: 20px;
-            padding: 25px 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border-left: 5px solid var(--primary);
-        }
-
-        .stat-card.downloads { border-left-color: var(--accent); }
-
-        .stat-info {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .stat-icon {
-            font-size: 2.5rem;
-            background: var(--light);
-            width: 65px;
-            height: 65px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        .stat-label {
-            color: #555;
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        .live-badge {
-            background: rgba(39, 174, 96, 0.12);
-            color: var(--success);
-            padding: 6px 14px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .live-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--success);
-            border-radius: 50%;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(1.3); }
-            100% { opacity: 1; transform: scale(1); }
-        }
+        .feature-icon { font-size: 3.5rem; margin-bottom: 15px; }
+        .feature-title { font-size: 1.3rem; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+        .feature-desc { color: #666; font-size: 0.95rem; line-height: 1.5; }
 
         /* ===== PAGE HEADER ===== */
         .page-header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             border-radius: 20px;
-            padding: 40px;
+            padding: 35px;
             color: white;
             margin-bottom: 30px;
             text-align: center;
-            box-shadow: 0 12px 35px rgba(26,82,118,0.25);
+            box-shadow: 0 10px 30px rgba(26,82,118,0.2);
         }
 
-        .page-header h2 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
+        .page-header h2 { font-size: 2rem; margin-bottom: 10px; }
+        .page-header p { opacity: 0.9; font-size: 1.1rem; }
 
-        .page-header p {
-            opacity: 0.9;
-            font-size: 1.1rem;
-        }
-
-        /* ===== SUBJECT TABS & DROPDOWNS ===== */
+        /* ===== SUBJECT TABS ===== */
         .subject-tabs {
             display: flex;
-            gap: 12px;
-            margin-bottom: 30px;
+            gap: 10px;
+            margin-bottom: 25px;
             justify-content: center;
             flex-wrap: wrap;
         }
@@ -382,156 +277,74 @@
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 0.95rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .subject-tab:hover, .subject-tab.active {
             background: var(--secondary);
             color: white;
-            box-shadow: 0 6px 20px rgba(46,134,171,0.3);
+            box-shadow: 0 4px 15px rgba(46,134,171,0.3);
         }
 
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 110%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            min-width: 220px;
-            border-radius: 16px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-            padding: 8px;
-            z-index: 500;
-            border: 1px solid #eee;
-        }
-
-        .dropdown.open .dropdown-menu {
-            display: block;
-            animation: fadeIn 0.2s ease;
-        }
-
-        .dropdown-item {
-            width: 100%;
-            text-align: left;
-            padding: 12px 16px;
-            border: none;
-            background: transparent;
-            border-radius: 10px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--dark);
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .dropdown-item:hover {
-            background: #f0f4f8;
-            color: var(--primary);
-        }
-
-        /* ===== CHAPTER & EXAM CARDS ===== */
-        .section-panel { display: none; }
-        .section-panel.active { display: block; animation: fadeIn 0.35s ease; }
-
-        .section-banner {
-            background: white;
-            padding: 18px 25px;
-            border-radius: 16px;
-            margin-bottom: 20px;
-            border-left: 5px solid var(--accent);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-        }
-
-        .section-banner h3 {
-            color: var(--primary);
-            font-size: 1.25rem;
-            margin-bottom: 4px;
-        }
-
-        .section-banner p {
-            color: #666;
-            font-size: 0.92rem;
-        }
-
-        .cards-list {
+        /* ===== CHAPTER CARDS ===== */
+        .chapter-list {
             display: flex;
             flex-direction: column;
-            gap: 18px;
+            gap: 16px;
         }
 
         .chapter-card {
             background: white;
-            border-radius: 18px;
-            padding: 24px 28px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            border-radius: 16px;
+            padding: 20px 25px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 20px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.04);
-            flex-wrap: wrap;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.06);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            position: relative;
+            z-index: 1;
         }
 
         .chapter-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(26,82,118,0.12);
-            border-color: rgba(46,134,171,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .chapter-card.dropdown-open {
+            z-index: 500 !important;
         }
 
         .chapter-left {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 18px;
             flex: 1;
-            min-width: 260px;
         }
 
         .chapter-num {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            font-weight: 800;
-            font-size: 1.2rem;
+            font-weight: 700;
+            font-size: 1.1rem;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            box-shadow: 0 6px 15px rgba(26,82,118,0.25);
         }
 
-        .chapter-num.exam-badge {
-            background: linear-gradient(135deg, var(--accent), #d35400);
-            box-shadow: 0 6px 15px rgba(230,126,34,0.25);
-        }
-
-        .chapter-num.ds-badge {
-            background: linear-gradient(135deg, var(--success), #1e8449);
-            box-shadow: 0 6px 15px rgba(39,174,96,0.25);
-        }
-
-        .chapter-info h4 {
-            font-size: 1.15rem;
+        .chapter-info h3 {
+            font-size: 1.1rem;
             color: var(--dark);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .chapter-info p {
+            font-size: 0.88rem;
             color: #666;
-            font-size: 0.9rem;
         }
 
         .chapter-actions {
@@ -541,78 +354,167 @@
             flex-wrap: wrap;
         }
 
-        .res-btn {
+        .btn-res {
             padding: 9px 16px;
             border-radius: 10px;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 600;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            transition: all 0.25s ease;
-            border: none;
             cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
         }
 
-        .btn-cours {
-            background: rgba(26, 82, 118, 0.1);
-            color: var(--primary);
-        }
-        .btn-cours:hover { background: var(--primary); color: white; }
+        .btn-cours { background: #e8f4fd; color: #1a5276; }
+        .btn-cours:hover { background: #1a5276; color: white; }
 
-        .btn-act {
-            background: rgba(39, 174, 96, 0.12);
-            color: var(--success);
-        }
-        .btn-act:hover { background: var(--success); color: white; }
+        .btn-activite { background: #e8f8f5; color: #1e8449; }
+        .btn-activite:hover { background: #27ae60; color: white; }
 
-        .btn-exo {
-            background: rgba(230, 126, 34, 0.12);
-            color: var(--accent);
-        }
-        .btn-exo:hover { background: var(--accent); color: white; }
+        .btn-serie { background: #fef5e7; color: #d35400; }
+        .btn-serie:hover, .btn-serie.active { background: #e67e22; color: white; }
 
-        .btn-corrige {
-            background: rgba(46, 134, 171, 0.12);
-            color: var(--secondary);
+        /* ===== DROPDOWN SERIES ===== */
+        .dropdown-wrapper {
+            position: relative;
+            display: inline-block;
         }
-        .btn-corrige:hover { background: var(--secondary); color: white; }
 
-        /* Series dropdown inside chapter card */
-        .series-dropdown { position: relative; display: inline-block; }
-        .series-menu {
+        .dropdown-menu {
             display: none;
             position: absolute;
             right: 0;
-            top: 112%;
+            top: calc(100% + 8px);
             background: white;
-            min-width: 195px;
+            min-width: 210px;
             border-radius: 14px;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.16);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            border: 1px solid #e5e8e8;
             padding: 8px;
-            z-index: 400;
-            border: 1px solid #eee;
+            z-index: 999;
         }
-        .series-dropdown.open .series-menu { display: block; animation: fadeIn 0.2s ease; }
-        .series-menu a {
+
+        .dropdown-menu.show {
+            display: block;
+            animation: fadeIn 0.2s ease;
+        }
+
+        .dropdown-item {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 9px 12px;
+            padding: 10px 14px;
             color: var(--dark);
             text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
             border-radius: 8px;
-            font-size: 0.88rem;
-            font-weight: 600;
             transition: background 0.2s;
+            cursor: pointer;
         }
-        .series-menu a:hover { background: #f4f6f8; color: var(--accent); }
-        .series-menu a.complete {
+
+        .dropdown-item:hover {
+            background: #f0f7fc;
+            color: var(--primary);
+        }
+
+        .dropdown-item.complete {
             border-top: 1px solid #eee;
             margin-top: 4px;
             padding-top: 10px;
+            font-weight: 700;
             color: var(--primary);
+        }
+
+        /* ===== EXAMENS GRID ===== */
+        .exam-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 18px;
+        }
+
+        .exam-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            border-top: 4px solid var(--primary);
+            transition: transform 0.2s ease;
+        }
+
+        .exam-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .exam-year {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .exam-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .exam-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+        }
+
+        .exam-btns {
+            display: flex;
+            gap: 6px;
+        }
+
+        .mini-btn {
+            padding: 4px 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .mini-sujet { background: #d6eaf8; color: #1b4f72; }
+        .mini-sujet:hover { background: #2e86ab; color: white; }
+        .mini-corrige { background: #d5f5e3; color: #186a3b; }
+        .mini-corrige:hover { background: #27ae60; color: white; }
+
+        /* ===== TOAST NOTIFICATION ===== */
+        .toast {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: var(--dark);
+            color: white;
+            padding: 14px 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            font-size: 0.95rem;
+            border-left: 4px solid var(--accent);
+            transform: translateY(120px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 2000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
         }
 
         /* ===== FOOTER ===== */
@@ -620,32 +522,17 @@
             background: var(--dark);
             color: rgba(255,255,255,0.85);
             text-align: center;
-            padding: 28px 20px;
-            margin-top: 50px;
+            padding: 30px 20px;
+            margin-top: 60px;
         }
 
-        .footer-info {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            margin-bottom: 12px;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
+        footer p { margin: 6px 0; font-size: 0.95rem; }
 
-        .footer-copy {
-            font-size: 0.85rem;
-            opacity: 0.7;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 900px) {
-            .hero { flex-direction: column; text-align: center; padding: 35px 25px; gap: 25px; }
+        @media (max-width: 850px) {
+            .hero { flex-direction: column; text-align: center; padding: 30px 20px; }
             .features-grid { grid-template-columns: 1fr; }
-            .stats-grid { grid-template-columns: 1fr; }
-            .nav-container { justify-content: center; }
-            .nav-btn { padding: 14px 16px; font-size: 0.92rem; }
+            .chapter-card { flex-direction: column; align-items: flex-start; }
+            .chapter-actions { width: 100%; justify-content: flex-start; }
         }
     </style>
 </head>
@@ -659,18 +546,18 @@
                 <span>Physique-Chimie</span>
             </a>
             <div class="nav-links">
-                <button class="nav-btn active" data-page="accueil" onclick="showPage('accueil')">🏠 Accueil</button>
-                <button class="nav-btn" data-page="tc" onclick="showPage('tc')">📚 Tronc Commun</button>
-                <button class="nav-btn" data-page="1bac" onclick="showPage('1bac')">🎓 1ère Bac</button>
-                <button class="nav-btn" data-page="2bac" onclick="showPage('2bac')">🎯 2ème Bac</button>
+                <button class="nav-btn active" onclick="showPage('accueil', this)">🏠 Accueil</button>
+                <button class="nav-btn" onclick="showPage('tc', this)">📘 Tronc Commun</button>
+                <button class="nav-btn" onclick="showPage('1bac', this)">📗 1ère Bac</button>
+                <button class="nav-btn" onclick="showPage('2bac', this)">📕 2ème Bac</button>
             </div>
         </div>
     </nav>
 
     <div class="container">
 
-        <!-- ==================== PAGE ACCUEIL ==================== -->
-        <div id="page-accueil" class="page active">
+        <!-- PAGE ACCUEIL -->
+        <section id="page-accueil" class="page active">
             <div class="hero">
                 <div class="atom-animation">⚛️</div>
                 <div class="profile-section">
@@ -682,426 +569,312 @@
                 <div class="hero-content">
                     <h1>Bienvenue sur mon site de Physique-Chimie !</h1>
                     <p class="hero-subtitle">
-                        Ce site est dédié aux élèves du <strong>Lycée Omar Alkhayyam de Taza</strong>. Vous y trouverez les cours, séries d'exercices, devoirs surveillés et ressources pédagogiques conformes au programme marocain.
+                        Ce site est dédié aux élèves du <strong>Lycée Omar Alkhayyam de Taza</strong>. Vous y trouverez les cours, activités, séries d'exercices, devoirs surveillés et examens nationaux conformes au programme officiel marocain (Année scolaire <strong>2026/2027</strong>).
                     </p>
                     <div class="school-badge">🏫 Lycée Omar Alkhayyam — Taza</div>
                     <div class="welcome-quote">
-                        « La physique est la poésie de la nature, et la chimie est son alphabet. Ensemble, elles nous révèlent les merveilles de l'univers qui nous entoure. »
+                        « La physique est la poésie de la nature, et la chimie est son alphabet. Ensemble, elles nous permettent de comprendre les secrets de l'univers. »
                     </div>
                 </div>
             </div>
 
             <div class="features-grid">
                 <div class="feature-card" onclick="showPage('tc')">
-                    <div class="feature-icon">📐</div>
+                    <div class="feature-icon">📘</div>
                     <div class="feature-title">Tronc Commun</div>
-                    <div class="feature-desc">Cours de physique-chimie pour le tronc commun scientifique. Les bases fondamentales pour bien démarrer.</div>
+                    <div class="feature-desc">Programme officiel 2026/2027 : Mécanique, Électricité, Chimie générale et quantitative.</div>
                 </div>
                 <div class="feature-card" onclick="showPage('1bac')">
-                    <div class="feature-icon">🔬</div>
+                    <div class="feature-icon">📗</div>
                     <div class="feature-title">1ère Année Bac</div>
-                    <div class="feature-desc">Programme officiel de première année baccalauréat. Approfondissement des concepts physiques et chimiques.</div>
+                    <div class="feature-desc">Travail et énergie, Électrostatique, Magnétisme, Optique, Conductimétrie et Chimie organique.</div>
                 </div>
                 <div class="feature-card" onclick="showPage('2bac')">
-                    <div class="feature-icon">🚀</div>
+                    <div class="feature-icon">📕</div>
                     <div class="feature-title">2ème Année Bac</div>
-                    <div class="feature-desc">Programme de deuxième année baccalauréat (SM / PC / SVT) et annales des Examens Nationaux (2006–2026).</div>
+                    <div class="feature-desc">Ondes, Nucléaire, Électricité (RC, RL, RLC), Mécanique, Cinétique, Acide-Base et Examens Nationaux (2006–2026).</div>
                 </div>
             </div>
+        </section>
 
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-info">
-                        <div class="stat-icon">👁️</div>
-                        <div>
-                            <div class="stat-number" id="visitor-count">1 248</div>
-                            <div class="stat-label">Visiteurs</div>
-                        </div>
-                    </div>
-                    <span class="live-badge"><span class="live-dot"></span> En direct</span>
-                </div>
-                <div class="stat-card downloads">
-                    <div class="stat-info">
-                        <div class="stat-icon">⬇️</div>
-                        <div>
-                            <div class="stat-number" id="download-count">3 590</div>
-                            <div class="stat-label">Téléchargements</div>
-                        </div>
-                    </div>
-                    <span class="live-badge"><span class="live-dot"></span> En direct</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- ==================== PAGE TRONC COMMUN ==================== -->
-        <div id="page-tc" class="page">
+        <!-- PAGE TRONC COMMUN -->
+        <section id="page-tc" class="page">
             <div class="page-header">
-                <h2>📐 Tronc Commun Scientifique</h2>
+                <h2>📘 Tronc Commun Scientifique</h2>
                 <p>Programme officiel du Tronc Commun — Année scolaire 2026/2027</p>
             </div>
-
             <div class="subject-tabs">
-                <button class="subject-tab active" onclick="switchTab('tc', 'physique', this)">⚡ Physique</button>
-                <button class="subject-tab" onclick="switchTab('tc', 'chimie', this)">🧪 Chimie</button>
-                <div class="dropdown">
-                    <button class="subject-tab" onclick="toggleDropdown(this)">📋 Devoirs Surveillés ▼</button>
-                    <div class="dropdown-menu">
-                        <button class="dropdown-item" onclick="switchTab('tc', 'ds1', this)">📋 DS Semestre 1</button>
-                        <button class="dropdown-item" onclick="switchTab('tc', 'ds2', this)">📋 DS Semestre 2</button>
-                    </div>
-                </div>
+                <button class="subject-tab active" onclick="renderLevel('tc', 'physique', this)">⚡ Physique</button>
+                <button class="subject-tab" onclick="renderLevel('tc', 'chimie', this)">🧪 Chimie</button>
+                <button class="subject-tab" onclick="renderLevel('tc', 'devoirs', this)">📝 Devoirs Surveillés</button>
             </div>
+            <div id="content-tc" class="chapter-list"></div>
+        </section>
 
-            <div id="tc-physique" class="section-panel active"></div>
-            <div id="tc-chimie" class="section-panel"></div>
-            <div id="tc-ds1" class="section-panel"></div>
-            <div id="tc-ds2" class="section-panel"></div>
-        </div>
-
-        <!-- ==================== PAGE 1ERE BAC ==================== -->
-        <div id="page-1bac" class="page">
+        <!-- PAGE 1ERE BAC -->
+        <section id="page-1bac" class="page">
             <div class="page-header">
-                <h2>🎓 Première Année Baccalauréat</h2>
-                <p>Sciences Expérimentales & Sciences Mathématiques — Année scolaire 2026/2027</p>
+                <h2>📗 Première Année Baccalauréat</h2>
+                <p>Programme officiel 1ère Bac (SM & Sciences Expérimentales) — Année scolaire 2026/2027</p>
             </div>
-
             <div class="subject-tabs">
-                <button class="subject-tab active" onclick="switchTab('1bac', 'physique', this)">⚡ Physique</button>
-                <button class="subject-tab" onclick="switchTab('1bac', 'chimie', this)">🧪 Chimie</button>
-                <div class="dropdown">
-                    <button class="subject-tab" onclick="toggleDropdown(this)">📋 Devoirs Surveillés ▼</button>
-                    <div class="dropdown-menu">
-                        <button class="dropdown-item" onclick="switchTab('1bac', 'ds1', this)">📋 DS Semestre 1</button>
-                        <button class="dropdown-item" onclick="switchTab('1bac', 'ds2', this)">📋 DS Semestre 2</button>
-                    </div>
-                </div>
+                <button class="subject-tab active" onclick="renderLevel('1bac', 'physique', this)">⚡ Physique</button>
+                <button class="subject-tab" onclick="renderLevel('1bac', 'chimie', this)">🧪 Chimie</button>
+                <button class="subject-tab" onclick="renderLevel('1bac', 'devoirs', this)">📝 Devoirs Surveillés</button>
             </div>
+            <div id="content-1bac" class="chapter-list"></div>
+        </section>
 
-            <div id="1bac-physique" class="section-panel active"></div>
-            <div id="1bac-chimie" class="section-panel"></div>
-            <div id="1bac-ds1" class="section-panel"></div>
-            <div id="1bac-ds2" class="section-panel"></div>
-        </div>
-
-        <!-- ==================== PAGE 2EME BAC ==================== -->
-        <div id="page-2bac" class="page">
+        <!-- PAGE 2EME BAC -->
+        <section id="page-2bac" class="page">
             <div class="page-header">
-                <h2>🎯 Deuxième Année Baccalauréat</h2>
-                <p>Sciences Mathématiques (SM), Sciences Physiques (PC) & SVT — Année scolaire 2026/2027</p>
+                <h2>📕 Deuxième Année Baccalauréat</h2>
+                <p>Programme officiel 2ème Bac (SM, PC & SVT) et Annales du Baccalauréat — 2026/2027</p>
             </div>
-
             <div class="subject-tabs">
-                <button class="subject-tab active" onclick="switchTab('2bac', 'physique', this)">⚡ Physique</button>
-                <button class="subject-tab" onclick="switchTab('2bac', 'chimie', this)">🧪 Chimie</button>
-                <div class="dropdown">
-                    <button class="subject-tab" onclick="toggleDropdown(this)">📋 Devoirs Surveillés ▼</button>
-                    <div class="dropdown-menu">
-                        <button class="dropdown-item" onclick="switchTab('2bac', 'ds1', this)">📋 DS Semestre 1</button>
-                        <button class="dropdown-item" onclick="switchTab('2bac', 'ds2', this)">📋 DS Semestre 2</button>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button class="subject-tab" onclick="toggleDropdown(this)">🏛 Examens Nationaux ▼</button>
-                    <div class="dropdown-menu">
-                        <button class="dropdown-item" onclick="switchTab('2bac', 'nat-sm', this)">🔴 Examens SM</button>
-                        <button class="dropdown-item" onclick="switchTab('2bac', 'nat-pc', this)">🟢 Examens PC</button>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button class="subject-tab" onclick="toggleDropdown(this)">🔄 Rattrapage ▼</button>
-                    <div class="dropdown-menu">
-                        <button class="dropdown-item" onclick="switchTab('2bac', 'rat-sm', this)">🔴 Rattrapage SM</button>
-                        <button class="dropdown-item" onclick="switchTab('2bac', 'rat-pc', this)">🟠 Rattrapage PC</button>
-                    </div>
-                </div>
+                <button class="subject-tab active" onclick="renderLevel('2bac', 'physique', this)">⚡ Physique</button>
+                <button class="subject-tab" onclick="renderLevel('2bac', 'chimie', this)">🧪 Chimie</button>
+                <button class="subject-tab" onclick="renderLevel('2bac', 'devoirs', this)">📝 Devoirs Surveillés</button>
+                <button class="subject-tab" onclick="renderExams('2bac', this)">🏛 Examens Nationaux (2006–2026)</button>
             </div>
-
-            <div id="2bac-physique" class="section-panel active"></div>
-            <div id="2bac-chimie" class="section-panel"></div>
-            <div id="2bac-ds1" class="section-panel"></div>
-            <div id="2bac-ds2" class="section-panel"></div>
-            <div id="2bac-nat-sm" class="section-panel"></div>
-            <div id="2bac-nat-pc" class="section-panel"></div>
-            <div id="2bac-rat-sm" class="section-panel"></div>
-            <div id="2bac-rat-pc" class="section-panel"></div>
-        </div>
+            <div id="content-2bac"></div>
+        </section>
 
     </div>
 
+    <!-- TOAST -->
+    <div id="toast" class="toast">⏳ Ce document sera bientôt mis en ligne par Mr Belkhaddar.</div>
+
     <!-- FOOTER -->
     <footer>
-        <div class="footer-info">
-            <span>👤 Mr Belkhaddar Mohammed</span>
-            <span>📞 06 25 96 44 96</span>
-            <span>🏫 Lycée Omar Alkhayyam — Taza</span>
-        </div>
-        <div class="footer-copy">© 2026-2027 — Site de Physique-Chimie — Programme Marocain</div>
+        <p><strong>Physique-Chimie — Mr Belkhaddar Mohammed</strong> | Lycée Omar Alkhayyam — Taza</p>
+        <p>Année scolaire 2026/2027 • Conforme au programme officiel marocain</p>
     </footer>
 
-    <!-- ==================== DONNÉES & SCRIPTS ==================== -->
     <script>
         // =========================================================================
-        // ZONE DE CONFIGURATION DES LIENS MEGA.NZ
-        // Remplacez simplement "#" par vos liens Mega.nz entre guillemets
+        // BASE DE DONNÉES DES COURS, ACTIVITÉS ET SÉRIES (REMPLACER "#" PAR MEGA.NZ)
         // =========================================================================
-        const DEFAULT_LINK = "#";
-
         const DATA = {
             tc: {
                 physique: [
-                    { titre: "La gravitation universelle & Actions mécaniques", desc: "Échelle des longueurs • Interaction gravitationnelle • Exemples d'actions mécaniques", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" },
-                    { titre: "Équilibre d'un corps solide & Principe d'inertie", desc: "Forces extérieures • Équilibre sous 2 et 3 forces • Centre d'inertie", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" },
-                    { titre: "Le courant électrique continu & Tension électrique", desc: "Sens du courant • Intensité • Tension électrique • Oscilloscope", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" },
-                    { titre: "Association des conducteurs ohmiques & Caractéristiques", desc: "Loi d'Ohm • Association série et parallèle • Caractéristique d'un dipôle", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" }
+                    { num: 1, title: "La gravitation universelle & Actions mécaniques", sub: "Échelle des longueurs • Interaction gravitationnelle • Forces", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 2, title: "Équilibre d'un corps solide & Principe d'inertie", sub: "Forces extérieures • Équilibre sous 2 et 3 forces • Centre d'inertie", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 3, title: "Le courant électrique continu & Tension électrique", sub: "Sens du courant • Intensité • Tension électrique • Oscilloscope", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 4, title: "Association des conducteurs ohmiques & Caractéristiques", sub: "Loi d'Ohm • Association série et parallèle • Caractéristique d'un dipôle", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" }
                 ],
                 chimie: [
-                    { titre: "Les espèces chimiques & Extraction / Synthèse", desc: "Espèces naturelles et synthétiques • Techniques d'extraction • Identification", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" },
-                    { titre: "Modèle de l'atome & Classification périodique", desc: "Structure de l'atome • Couches électroniques • Tableau périodique", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" },
-                    { titre: "Géométrie des molécules & Quantité de matière", desc: "Modèle de Lewis • Géométrie spatiale • La mole et masse molaire", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" },
-                    { titre: "Concentration molaire & Transformations chimiques", desc: "Dissolution • Dilution • Équation chimique • Tableau d'avancement", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" }
+                    { num: 1, title: "Les espèces chimiques & Extraction / Synthèse", sub: "Tests d'identification • Extraction par solvant • Synthèse d'une espèce", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 2, title: "Modèle de l'atome & Classification périodique", sub: "Structure de l'atome • Cortège électronique • Tableau périodique", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 3, title: "Géométrie des molécules & Quantité de matière", sub: "Représentation de Lewis • Géométrie spatiale • La mole et masse molaire", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 4, title: "Concentration molaire & Transformations chimiques", sub: "Solution aqueuse • Dilution • Avancement et tableau d'avancement", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" }
                 ],
-                ds1: [
-                    { titre: "Devoir Surveillé 1 — Semestre 1", desc: "Physique-Chimie • Durée : 2h • Coefficient : 2", sujet: "#", corrige: "#" },
-                    { titre: "Devoir Surveillé 2 — Semestre 1", desc: "Physique-Chimie • Durée : 2h • Coefficient : 2", sujet: "#", corrige: "#" }
-                ],
-                ds2: [
-                    { titre: "Devoir Surveillé 1 — Semestre 2", desc: "Physique-Chimie • Durée : 2h • Coefficient : 2", sujet: "#", corrige: "#" },
-                    { titre: "Devoir Surveillé 2 — Semestre 2", desc: "Physique-Chimie • Durée : 2h • Coefficient : 2", sujet: "#", corrige: "#" }
+                devoirs: [
+                    { num: 1, title: "Devoir Surveillé N°1 — Semestre 1", sub: "Gravitation universelle • Espèces chimiques • Extraction", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 2, title: "Devoir Surveillé N°2 — Semestre 1", sub: "Équilibre d'un solide • Modèle de l'atome • Classification", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 3, title: "Devoir Surveillé N°1 — Semestre 2", sub: "Courant continu • Tension • Géométrie des molécules", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 4, title: "Devoir Surveillé N°2 — Semestre 2", sub: "Conducteurs ohmiques • Quantité de matière • Tableau d'avancement", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" }
                 ]
             },
             "1bac": {
                 physique: [
-                    { titre: "Rotation d'un solide & Travail et puissance d'une force", desc: "Mouvement de rotation • Travail d'une force constante • Puissance", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" },
-                    { titre: "Énergie cinétique, potentielle et mécanique", desc: "Théorème de l'énergie cinétique • Énergie potentielle de pesanteur • Conservation", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" },
-                    { titre: "Électrostatique & Transfert d'énergie dans un circuit", desc: "Champ électrostatique • Énergie électrique • Bilan énergétique d'un circuit", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" },
-                    { titre: "Champ magnétique & Force de Laplace", desc: "Spectre magnétique • Champ créé par un courant • Loi de Laplace", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" },
-                    { titre: "Optique : Miroirs plans & Lentilles minces", desc: "Visibilité d'un objet • Images formées par un miroir et une lentille mince convergente", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" }
+                    { num: 1, title: "Rotation d'un solide & Travail et puissance d'une force", sub: "Abscisse angulaire • Vitesse angulaire • Travail d'une force constante", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 2, title: "Énergie cinétique, potentielle et mécanique", sub: "Théorème de l'énergie cinétique • Énergie potentielle de pesanteur", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 3, title: "Électrostatique & Transfert d'énergie dans un circuit", sub: "Champ électrostatique • Énergie électrique • Puissance et rendement", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 4, title: "Champ magnétique & Force de Laplace", sub: "Vecteur champ magnétique • Solénoïde • Loi de Laplace", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 5, title: "Optique géométrique", sub: "Visibilité d'un objet • Miroir plan • Lentilles minces convergentes", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" }
                 ],
                 chimie: [
-                    { titre: "Mesure en chimie : Quantité de matière & Concentration", desc: "Grandeurs physiques • Gaz parfaits • Solutions électrolytiques", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" },
-                    { titre: "Conductimétrie & Réactions acido-basiques", desc: "Conductance et conductivité • Couples acide/base • Équations acido-basiques", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" },
-                    { titre: "Réactions d'oxydoréduction & Dosages directs", desc: "Couples Ox/Red • Équilibrage • Titrage colorimétrique et conductimétrique", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" },
-                    { titre: "Chimie organique : Alcanes, alcènes & Groupes caractéristiques", desc: "Squelettes carbonés • Nomenclature • Alcools, aldéhydes, cétones, acides carboxyliques", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" }
+                    { num: 1, title: "Mesure en chimie", sub: "Quantité de matière • Volume molaire des gaz • Concentration", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 2, title: "Conductimétrie & Réactions acido-basiques", sub: "Conductance et conductivité • Couples acide/base • Équations", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 3, title: "Réactions d'oxydoréduction & Dosages directs", sub: "Couples oxydant/réducteur • Titrage colorimétrique et conductimétrique", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 4, title: "Chimie organique", sub: "Squelettes carbonés • Alcanes, alcènes • Groupes caractéristiques", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" }
                 ],
-                ds1: [
-                    { titre: "Devoir Surveillé 1 — Semestre 1", desc: "Physique-Chimie • Durée : 2h • Coefficient : 3", sujet: "#", corrige: "#" },
-                    { titre: "Devoir Surveillé 2 — Semestre 1", desc: "Physique-Chimie • Durée : 2h • Coefficient : 3", sujet: "#", corrige: "#" }
-                ],
-                ds2: [
-                    { titre: "Devoir Surveillé 1 — Semestre 2", desc: "Physique-Chimie • Durée : 2h • Coefficient : 3", sujet: "#", corrige: "#" },
-                    { titre: "Devoir Surveillé 2 — Semestre 2", desc: "Physique-Chimie • Durée : 2h • Coefficient : 3", sujet: "#", corrige: "#" }
+                devoirs: [
+                    { num: 1, title: "Devoir Surveillé N°1 — Semestre 1", sub: "Rotation • Travail et puissance • Mesures en chimie", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 2, title: "Devoir Surveillé N°2 — Semestre 1", sub: "Énergie cinétique et mécanique • Conductimétrie", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 3, title: "Devoir Surveillé N°1 — Semestre 2", sub: "Transfert d'énergie • Champ magnétique • Acide-Base & Redox", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 4, title: "Devoir Surveillé N°2 — Semestre 2", sub: "Force de Laplace • Optique • Dosages & Chimie organique", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" }
                 ]
             },
             "2bac": {
                 physique: [
-                    { titre: "Les ondes mécaniques progressives & périodiques", desc: "Célérité • Retard temporel • Périodicité spatiale et temporelle • Diffraction", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" },
-                    { titre: "Propagation d'une onde lumineuse", desc: "Diffraction de la lumière • Indice de réfraction • Dispersion par un prisme", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" },
-                    { titre: "Décroissance radioactive & Noyaux, masse et énergie", desc: "Stabilité nucléaire • Loi de décroissance • Demi-vie • Défaut de masse", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" },
-                    { titre: "Dipôle RC, Dipôle RL et Circuit RLC série", desc: "Charge/décharge • Constante de temps • Régime transitoire • Oscillations libres et forcées", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" },
-                    { titre: "Mécanique : Lois de Newton, Chute libre & Oscillateurs", desc: "Mouvements plans • Satellites et planètes • Pendules • Aspects énergétiques", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" }
+                    { num: 1, title: "Les ondes mécaniques progressives & périodiques", sub: "Célérité • Retard temporel • Diffraction • Dispersion", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 2, title: "Propagation d'une onde lumineuse", sub: "Diffraction de la lumière • Indice de réfraction • Dispersion", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 3, title: "Décroissance radioactive & Noyaux, masse et énergie", sub: "Loi de décroissance • Demi-vie • Défaut de masse • Fission et fusion", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 4, title: "Dipôle RC, Dipôle RL et Circuit RLC série", sub: "Charge/décharge • Établissement du courant • Oscillations libres et forcées", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 5, title: "Mécanique : Lois de Newton & Mouvements", sub: "Chute libre • Mouvements plans • Satellites • Oscillateurs mécaniques", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" }
                 ],
                 chimie: [
-                    { titre: "Transformations rapides/lentes & Suivi temporel", desc: "Facteurs cinétiques • Vitesse volumique de réaction • Temps de demi-réaction", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" },
-                    { titre: "Transformations chimiques non totales & État d'équilibre", desc: "Taux d'avancement final • Quotient de réaction Qr • Constante d'équilibre K", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" },
-                    { titre: "Réactions acido-basiques & Titrage pH-métrique", desc: "Produit ionique de l'eau • Constante d'acidité pKa • Diagramme de prédominance • Titrage", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" },
-                    { titre: "Évolution spontanée d'un système & Piles électrochimiques", desc: "Critère d'évolution spontanée • Fonctionnement d'une pile • Quantité d'électricité", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" },
-                    { titre: "Électrolyse forcée & Estérification / Hydrolyse", desc: "Transformations forcées • Réactions d'estérification et d'hydrolyse • Contrôle de la vitesse", cours: "#", activites: "#", series: ["#", "#", "#", "#"], serieComplete: "#" }
+                    { num: 1, title: "Transformations rapides/lentes & Suivi temporel", sub: "Facteurs cinétiques • Vitesse volumique • Temps de demi-réaction", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 2, title: "Transformations chimiques non totales & Équilibre", sub: "Taux d'avancement final • Quotient de réaction • Constante d'équilibre", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 3, title: "Réactions acido-basiques & Titrage pH-métrique", sub: "Produit ionique de l'eau • pKa • Diagramme de prédominance • Titrage", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 4, title: "Évolution spontanée & Piles électrochimiques", sub: "Critère d'évolution spontanée • Constitution et fonctionnement d'une pile", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 5, title: "Électrolyse forcée & Estérification / Hydrolyse", sub: "Transformations forcées • Contrôle de l'évolution d'un système chimique", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" }
                 ],
-                ds1: [
-                    { titre: "Devoir Surveillé 1 — Semestre 1", desc: "Physique-Chimie • Durée : 3h • Coefficient : 4", sujet: "#", corrige: "#" },
-                    { titre: "Devoir Surveillé 2 — Semestre 1", desc: "Physique-Chimie • Durée : 3h • Coefficient : 4", sujet: "#", corrige: "#" }
-                ],
-                ds2: [
-                    { titre: "Devoir Surveillé 1 — Semestre 2", desc: "Physique-Chimie • Durée : 3h • Coefficient : 4", sujet: "#", corrige: "#" },
-                    { titre: "Devoir Surveillé 2 — Semestre 2", desc: "Physique-Chimie • Durée : 3h • Coefficient : 4", sujet: "#", corrige: "#" }
+                devoirs: [
+                    { num: 1, title: "Devoir Surveillé N°1 — Semestre 1", sub: "Ondes mécaniques et lumineuses • Cinétique chimique", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 2, title: "Devoir Surveillé N°2 — Semestre 1", sub: "Nucléaire • Dipôle RC • Équilibre chimique et pH", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 3, title: "Devoir Surveillé N°1 — Semestre 2", sub: "Dipôle RL & RLC • Lois de Newton • Titrage acido-basique", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" },
+                    { num: 4, title: "Devoir Surveillé N°2 — Semestre 2", sub: "Mouvements plans & Oscillateurs • Piles & Estérification", cours: "#", activite: "#", s1: "#", s2: "#", s3: "#", s4: "#", sc: "#" }
                 ]
             }
         };
 
-        // Liens spécifiques des examens nationaux (si vous voulez personnaliser une année précise)
-        // Format : "2024-normale-sm": { sujet: "https://mega.nz/...", corrige: "https://mega.nz/..." }
-        const EXAM_LINKS = {};
+        // Liens spécifiques pour les Examens Nationaux (optionnel : ajouter annee: { normSujet: "...", ... })
+        const EXAM_LINKS = {
+            2026: { normSujet: "#", normCorr: "#", rattSujet: "#", rattCorr: "#" },
+            2025: { normSujet: "#", normCorr: "#", rattSujet: "#", rattCorr: "#" }
+        };
 
         // =========================================================================
-        // RENDU DYNAMIQUE DES CONTENUS
+        // GESTION DE LA NAVIGATION ET DU RENDU
         // =========================================================================
-        function renderChapters(containerId, items) {
-            const container = document.getElementById(containerId);
-            if (!container) return;
-            let html = '<div class="cards-list">';
-            items.forEach((ch, idx) => {
-                const sLinks = ch.series.map((link, i) =>
-                    `<a href="${link}" target="_blank" onclick="trackDownload()"><span>${i + 1} Série ${i + 1}</span><span>⬇️</span></a>`
-                ).join('');
-                html += `
+        function showPage(pageId, btnEl) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('page-' + pageId).classList.add('active');
+
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            if (btnEl) {
+                btnEl.classList.add('active');
+            } else {
+                const map = { accueil: 0, tc: 1, '1bac': 2, '2bac': 3 };
+                const btns = document.querySelectorAll('.nav-btn');
+                if (btns[map[pageId]]) btns[map[pageId]].classList.add('active');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function handleLink(event, url) {
+            if (!url || url === '#') {
+                event.preventDefault();
+                event.stopPropagation();
+                showToast();
+                return false;
+            }
+            return true;
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            clearTimeout(window._toastTimer);
+            window._toastTimer = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        function toggleDropdown(event, id) {
+            event.stopPropagation();
+            const targetMenu = document.getElementById(id);
+            const targetCard = targetMenu.closest('.chapter-card');
+            const isOpen = targetMenu.classList.contains('show');
+
+            closeAllDropdowns();
+
+            if (!isOpen) {
+                targetMenu.classList.add('show');
+                if (targetCard) targetCard.classList.add('dropdown-open');
+            }
+        }
+
+        function closeAllDropdowns() {
+            document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('show'));
+            document.querySelectorAll('.chapter-card').forEach(c => c.classList.remove('dropdown-open'));
+        }
+
+        document.addEventListener('click', closeAllDropdowns);
+
+        function renderLevel(level, category, tabEl) {
+            if (tabEl) {
+                tabEl.parentElement.querySelectorAll('.subject-tab').forEach(t => t.classList.remove('active'));
+                tabEl.classList.add('active');
+            }
+
+            const container = document.getElementById('content-' + level);
+            container.className = 'chapter-list';
+            const items = DATA[level][category] || [];
+            const isDevoir = category === 'devoirs';
+
+            container.innerHTML = items.map((item, idx) => {
+                const dropId = `drop-${level}-${category}-${idx}`;
+                return `
                 <div class="chapter-card">
                     <div class="chapter-left">
-                        <div class="chapter-num">${idx + 1}</div>
+                        <div class="chapter-num">${item.num}</div>
                         <div class="chapter-info">
-                            <h4>${ch.titre}</h4>
-                            <p>${ch.desc}</p>
+                            <h3>${item.title}</h3>
+                            <p>${item.sub}</p>
                         </div>
                     </div>
                     <div class="chapter-actions">
-                        <a href="${ch.cours}" target="_blank" class="res-btn btn-cours" onclick="trackDownload()">📘 Cours</a>
-                        <a href="${ch.activites}" target="_blank" class="res-btn btn-act" onclick="trackDownload()">📝 Activités</a>
-                        <div class="series-dropdown">
-                            <button class="res-btn btn-exo" onclick="toggleSeries(this)">📐 Séries d'exercices ▼</button>
-                            <div class="series-menu">
-                                ${sLinks}
-                                <a href="${ch.serieComplete}" target="_blank" class="complete" onclick="trackDownload()"><span>★ Série Complète</span><span>⬇️</span></a>
+                        <a href="${item.cours}" target="_blank" rel="noopener" onclick="return handleLink(event, '${item.cours}')" class="btn-res btn-cours">
+                            ${isDevoir ? '📄 Sujet' : '📘 Cours'}
+                        </a>
+                        <a href="${item.activite}" target="_blank" rel="noopener" onclick="return handleLink(event, '${item.activite}')" class="btn-res btn-activite">
+                            ${isDevoir ? '🔑 Corrigé' : '🔬 Activités'}
+                        </a>
+                        ${!isDevoir ? `
+                        <div class="dropdown-wrapper">
+                            <button type="button" class="btn-res btn-serie" onclick="toggleDropdown(event, '${dropId}')">
+                                📂 Séries d'exercices ▼
+                            </button>
+                            <div id="${dropId}" class="dropdown-menu">
+                                <a href="${item.s1}" target="_blank" rel="noopener" onclick="return handleLink(event, '${item.s1}')" class="dropdown-item"><span>1 Série 1</span><span>⬇️</span></a>
+                                <a href="${item.s2}" target="_blank" rel="noopener" onclick="return handleLink(event, '${item.s2}')" class="dropdown-item"><span>2 Série 2</span><span>⬇️</span></a>
+                                <a href="${item.s3}" target="_blank" rel="noopener" onclick="return handleLink(event, '${item.s3}')" class="dropdown-item"><span>3 Série 3</span><span>⬇️</span></a>
+                                <a href="${item.s4}" target="_blank" rel="noopener" onclick="return handleLink(event, '${item.s4}')" class="dropdown-item"><span>4 Série 4</span><span>⬇️</span></a>
+                                <a href="${item.sc}" target="_blank" rel="noopener" onclick="return handleLink(event, '${item.sc}')" class="dropdown-item complete"><span>★ Série Complète</span><span>📦</span></a>
+                            </div>
+                        </div>` : ''}
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        function renderExams(level, tabEl) {
+            if (tabEl) {
+                tabEl.parentElement.querySelectorAll('.subject-tab').forEach(t => t.classList.remove('active'));
+                tabEl.classList.add('active');
+            }
+
+            const container = document.getElementById('content-' + level);
+            container.className = 'exam-grid';
+            let html = '';
+
+            for (let year = 2026; year >= 2006; year--) {
+                const links = EXAM_LINKS[year] || { normSujet: "#", normCorr: "#", rattSujet: "#", rattCorr: "#" };
+                html += `
+                <div class="exam-card">
+                    <div class="exam-year">
+                        <span>🏛 Session ${year}</span>
+                        <span style="font-size:0.8rem; background:#eaf2f8; padding:3px 8px; border-radius:6px;">2ème Bac</span>
+                    </div>
+                    <div class="exam-links">
+                        <div class="exam-row">
+                            <span>Session Normale</span>
+                            <div class="exam-btns">
+                                <a href="${links.normSujet}" target="_blank" rel="noopener" onclick="return handleLink(event, '${links.normSujet}')" class="mini-btn mini-sujet">Sujet</a>
+                                <a href="${links.normCorr}" target="_blank" rel="noopener" onclick="return handleLink(event, '${links.normCorr}')" class="mini-btn mini-corrige">Corrigé</a>
+                            </div>
+                        </div>
+                        <div class="exam-row">
+                            <span>Rattrapage</span>
+                            <div class="exam-btns">
+                                <a href="${links.rattSujet}" target="_blank" rel="noopener" onclick="return handleLink(event, '${links.rattSujet}')" class="mini-btn mini-sujet">Sujet</a>
+                                <a href="${links.rattCorr}" target="_blank" rel="noopener" onclick="return handleLink(event, '${links.rattCorr}')" class="mini-btn mini-corrige">Corrigé</a>
                             </div>
                         </div>
                     </div>
                 </div>`;
-            });
-            html += '</div>';
+            }
             container.innerHTML = html;
         }
 
-        function renderDS(containerId, items) {
-            const container = document.getElementById(containerId);
-            if (!container) return;
-            let html = '<div class="cards-list">';
-            items.forEach((ds, idx) => {
-                html += `
-                <div class="chapter-card">
-                    <div class="chapter-left">
-                        <div class="chapter-num ds-badge">DS${idx + 1}</div>
-                        <div class="chapter-info">
-                            <h4>${ds.titre}</h4>
-                            <p>${ds.desc}</p>
-                        </div>
-                    </div>
-                    <div class="chapter-actions">
-                        <a href="${ds.sujet}" target="_blank" class="res-btn btn-cours" onclick="trackDownload()">📄 Sujet</a>
-                        <a href="${ds.corrige}" target="_blank" class="res-btn btn-corrige" onclick="trackDownload()">🔑 Corrigé</a>
-                    </div>
-                </div>`;
-            });
-            html += '</div>';
-            container.innerHTML = html;
-        }
-
-        function renderExams(containerId, sessionLabel, filiereCode, filiereName) {
-            const container = document.getElementById(containerId);
-            if (!container) return;
-            let html = `
-            <div class="section-banner">
-                <h3>${sessionLabel === 'Normale' ? '🏛 Examens Nationaux' : '🔄 Session de Rattrapage'} — 2ème Année Bac — ${filiereCode.toUpperCase()}</h3>
-                <p>${filiereName} • Sujets et corrections de 2006 à 2026</p>
-            </div>
-            <div class="cards-list">`;
-
-            for (let year = 2006; year <= 2026; year++) {
-                const shortYear = String(year).slice(-2);
-                const key = `${year}-${sessionLabel.toLowerCase()}-${filiereCode}`;
-                const links = EXAM_LINKS[key] || { sujet: DEFAULT_LINK, corrige: DEFAULT_LINK };
-                html += `
-                <div class="chapter-card">
-                    <div class="chapter-left">
-                        <div class="chapter-num exam-badge">${shortYear}</div>
-                        <div class="chapter-info">
-                            <h4>Session ${sessionLabel} ${year}</h4>
-                            <p>Physique-Chimie • ${filiereName} • Durée : 3h • Coefficient : 4</p>
-                        </div>
-                    </div>
-                    <div class="chapter-actions">
-                        <a href="${links.sujet}" target="_blank" class="res-btn btn-cours" onclick="trackDownload()">📄 Sujet</a>
-                        <a href="${links.corrige}" target="_blank" class="res-btn btn-corrige" onclick="trackDownload()">🔑 Corrigé</a>
-                    </div>
-                </div>`;
-            }
-            html += '</div>';
-            container.innerHTML = html;
-        }
-
-        // =========================================================================
-        // NAVIGATION & INTERACTIONS
-        // =========================================================================
-        function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            const target = document.getElementById('page-' + pageId);
-            if (target) target.classList.add('active');
-
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.page === pageId);
-            });
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function switchTab(level, tabName, btnEl) {
-            const page = document.getElementById('page-' + level);
-            page.querySelectorAll('.section-panel').forEach(p => p.classList.remove('active'));
-            const target = document.getElementById(`${level}-${tabName}`);
-            if (target) target.classList.add('active');
-
-            page.querySelectorAll('.subject-tab').forEach(t => t.classList.remove('active'));
-            const parentDropdown = btnEl.closest('.dropdown');
-            if (parentDropdown) {
-                parentDropdown.querySelector('.subject-tab').classList.add('active');
-                parentDropdown.classList.remove('open');
-            } else {
-                btnEl.classList.add('active');
-            }
-        }
-
-        function toggleDropdown(btn) {
-            const dropdown = btn.closest('.dropdown');
-            const isOpen = dropdown.classList.contains('open');
-            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
-            if (!isOpen) dropdown.classList.add('open');
-        }
-
-        function toggleSeries(btn) {
-            const dropdown = btn.closest('.series-dropdown');
-            const isOpen = dropdown.classList.contains('open');
-            document.querySelectorAll('.series-dropdown').forEach(d => d.classList.remove('open'));
-            if (!isOpen) dropdown.classList.add('open');
-        }
-
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.dropdown')) {
-                document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
-            }
-            if (!e.target.closest('.series-dropdown')) {
-                document.querySelectorAll('.series-dropdown').forEach(d => d.classList.remove('open'));
-            }
-        });
-
-        // Compteurs locaux
-        function initCounters() {
-            let visitors = parseInt(localStorage.getItem('pc_visitors') || '1248', 10) + 1;
-            localStorage.setItem('pc_visitors', visitors);
-            document.getElementById('visitor-count').textContent = visitors.toLocaleString('fr-FR');
-
-            let downloads = parseInt(localStorage.getItem('pc_downloads') || '3590', 10);
-            document.getElementById('download-count').textContent = downloads.toLocaleString('fr-FR');
-        }
-
-        function trackDownload() {
-            let downloads = parseInt(localStorage.getItem('pc_downloads') || '3590', 10) + 1;
-            localStorage.setItem('pc_downloads', downloads);
-            const el = document.getElementById('download-count');
-            if (el) el.textContent = downloads.toLocaleString('fr-FR');
-        }
-
-        // Initialisation au chargement
-        window.addEventListener('DOMContentLoaded', () => {
-            ['tc', '1bac', '2bac'].forEach(lvl => {
-                renderChapters(`${lvl}-physique`, DATA[lvl].physique);
-                renderChapters(`${lvl}-chimie`, DATA[lvl].chimie);
-                renderDS(`${lvl}-ds1`, DATA[lvl].ds1);
-                renderDS(`${lvl}-ds2`, DATA[lvl].ds2);
-            });
-
-            renderExams('2bac-nat-sm', 'Normale', 'sm', 'Sciences Mathématiques');
-            renderExams('2bac-nat-pc', 'Normale', 'pc', 'Sciences Physiques et Chimiques');
-            renderExams('2bac-rat-sm', 'Rattrapage', 'sm', 'Sciences Mathématiques');
-            renderExams('2bac-rat-pc', 'Rattrapage', 'pc', 'Sciences Physiques et Chimiques');
-
-            initCounters();
-        });
+        // Initialisation par défaut des onglets
+        renderLevel('tc', 'physique');
+        renderLevel('1bac', 'physique');
+        renderLevel('2bac', 'physique');
     </script>
 </body>
 </html>
